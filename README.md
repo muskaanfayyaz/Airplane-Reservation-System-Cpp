@@ -15,13 +15,13 @@ A simple C++ console application for managing airplane seat reservations. This p
 
 ```
 .
-├── seat 3.cpp
-├── seat 3.exe
+├── airplane reservation system.cpp
+├── airplane reservation system.exe
 └── README.md
 ```
 
-*   `seat 3.cpp`: The main C++ source code file containing all the logic for the reservation system.
-*   `seat 3.exe`: The compiled executable file (on Windows).
+*   `airplane reservation system.cpp`: The main C++ source code file containing all the logic for the reservation system.
+*   `airplane reservation system.exe`: The compiled executable file (on Windows).
 *   `README.md`: This file.
 
 ## Code Details
@@ -50,13 +50,13 @@ To use this program, you need a C++ compiler (like G++).
 1.  **Compile the code:**
     Open your terminal or command prompt and run the following command:
     ```bash
-    g++ "seat 3.cpp" -o "seat 3.exe"
+    g++ "airplane reservation system.cpp" -o "airplane reservation system.exe"
     ```
 
 2.  **Run the executable:**
     Execute the compiled program:
     ```bash
-    ./"seat 3.exe"
+    ./"airplane reservation system.exe"
     ```
 
 ## Example Usage
