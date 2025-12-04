@@ -1,147 +1,107 @@
-✈️ Airplane Reservation System (C++)
+# Airplane Reservation System
 
-A simple and complete Airplane Reservation System built in C++, featuring seat booking, flight selection, fare viewing, booking cancellation, and seating plan display.
-This project is ideal for beginners learning arrays, structs, and functions in C++.
+A simple C++ console application for managing airplane seat reservations. This project provides a basic but functional command-line interface for booking and managing airline seats for a single aircraft.
 
-📌 Features
-✅ Seat Booking by Class
+## Features
 
-First Class (Rows 1–2)
+*   **Book Seats:** Reserve seats in First, Business, and Economy classes for different flights.
+*   **Cancel Bookings:** Cancel an existing reservation using a unique booking ID.
+*   **View Seating Plan:** Display the current seating arrangement, showing which seats are available (`0`) and which are booked (`1`).
+*   **View Fares:** Check the ticket prices for First, Business, and Economy classes.
+*   **View Remaining Seats:** See the number of available seats in each class.
+*   **View Available Flights:** List all available flights with their departure, destination, and time.
 
-Business Class (Rows 3–4)
+## Project Structure
 
-Economy Class (Rows 5–12)
+```
+.
+├── seat 3.cpp
+├── seat 3.exe
+└── README.md
+```
 
-Each booking automatically:
+*   `seat 3.cpp`: The main C++ source code file containing all the logic for the reservation system.
+*   `seat 3.exe`: The compiled executable file (on Windows).
+*   `README.md`: This file.
 
-Generates a unique Booking ID (BKxxxx)
+## Code Details
 
-Stores passenger name
+### Data Structures
 
-Calculates total fare
+*   **`Seats[ROWS][COLS]`**: A 2D integer array representing the seating plan of the aircraft. A value of `0` means the seat is available, and `1` means it is booked.
+*   **`passengerNames[ROWS][COLS]`**: A 2D string array to store the name of the passenger for each booked seat.
+*   **`bookingIDs[ROWS][COLS]`**: A 2D string array to store the unique booking ID associated with each reserved seat.
+*   **`Flight` struct**: A structure to hold flight information, including `departure`, `destination`, and `time`.
+*   **`flights[]` array**: An array of `Flight` structs, pre-populated with a list of available flights.
 
-Prints a ticket receipt
+### Key Functions
 
-✅ Predefined Flights
+*   `main()`: The main entry point of the program. It contains the main menu loop and handles user input.
+*   `bookSeats()`: Manages the seat booking process. It checks for seat availability, calculates the fare, reserves the seats, and prints a ticket receipt.
+*   `cancelBooking()`: Cancels a reservation by searching for the provided booking ID and resetting the seat status.
+*   `viewSeatingPlan()`: Renders the current layout of the aircraft seats, showing available and booked spots.
+*   `countSeats()`: A utility function that returns the number of available seats within a specified range of rows.
+*   `generateBookingID()`: Creates a unique booking ID for each new reservation.
 
-Includes 6 predefined flights with:
+## How to Compile and Run
 
-Departure city
+To use this program, you need a C++ compiler (like G++).
 
-Destination city
+1.  **Compile the code:**
+    Open your terminal or command prompt and run the following command:
+    ```bash
+    g++ "seat 3.cpp" -o "seat 3.exe"
+    ```
 
-Departure time
+2.  **Run the executable:**
+    Execute the compiled program:
+    ```bash
+    ./"seat 3.exe"
+    ```
 
-Example routes:
+## Example Usage
 
-Karachi → Islamabad
+Once the program is running, you will be presented with the main menu.
 
-Lahore → Dubai
+### Booking a Ticket
 
-Islamabad → Karachi
+1.  Select option `1`, `2`, or `3` to book a seat in First, Business, or Economy class.
+2.  The system will display a list of available flights.
+3.  Choose a flight by entering its number (e.g., `1`).
+4.  Enter your name (e.g., `john`).
+5.  Enter the number of seats you want to book (e.g., `2`).
+6.  If seats are available, a ticket receipt will be printed to the console:
 
-Karachi → Lahore
-
-✅ Seating Plan
-
-Displays a 12×7 seat grid:
-
-0 = Available
-
-1 = Booked
-
-✅ Remaining Seats Viewer
-
-Shows available seats by class:
-
-First Class
-
-Business Class
-
-Economy Class
-
-✅ Fare Chart
-
-First Class: 18,000 PKR
-
-Business Class: 14,000 PKR
-
-Economy Class: 10,000 PKR
-
-✅ Booking Cancellation
-
-Cancel any booking by entering the Booking ID.
-All seats booked under that ID are released automatically.
-
-✅ Interactive Menu
-
-Menu options include:
-
-Book First Class
-
-Book Business Class
-
-Book Economy Class
-
-View Seating Plan
-
-View Fares
-
-View Remaining Seats
-
-Cancel Booking
-
-View Available Flights
-
-Exit
-
-🧠 Concepts Used
-Concept	Description
-2D Arrays	For airplane seating layout (12×7)
-Structs	For storing flight information
-Functions	For booking, cancellation, display, and counting
-Loops	Used in menus and seat reservation
-Manual ID Generation	Creates unique BKxxxx booking IDs
-Strings	To store names and IDs
-📁 Project Structure
-AirplaneReservation.cpp
-
-
-Everything is implemented inside one C++ file.
-
-🚀 How to Compile & Run
-Compile
-g++ AirplaneReservation.cpp -o reservation
-
-Run
-./reservation
-
-🧾 Sample Ticket Output
+```
 -----------------------------
        TICKET RECEIPT
-Passenger: Ali
-Booking ID: BK1004
-Class: Economy Class
-Fare per seat: 10000 PKR
-Total Fare: 20000 PKR
+Passenger: john
+Booking ID: BK1001
+Class: First Class
+Fare per seat: 18000 PKR
+Total Fare: 36000 PKR
 Departure: Karachi
-Destination: Lahore
-Time: 06:00 AM
+Destination: Islamabad
+Time: 08:00 AM
 -----------------------------
+```
 
-🔮 Future Enhancements
+### Canceling a Booking
 
-Add file storage (save/load bookings)
+1.  Select option `7` from the main menu.
+2.  Enter the `Booking ID` from your receipt (e.g., `BK1001`).
+3.  The system will confirm the cancellation.
 
-Admin login system
+## Contributing
 
-Modify or rebook seats
+Contributions are welcome! If you have suggestions for improvements or find any bugs, please feel free to open an issue or submit a pull request.
 
-Add GUI using Qt or SFML
+1.  Fork the repository.
+2.  Create a new branch (`git checkout -b feature/YourFeature`).
+3.  Commit your changes (`git commit -m 'Add some feature'`).
+4LAG.  Push to the branch (`git push origin feature/YourFeature`).
+5.  Open a Pull Request.
 
-Add dynamic pricing / seat selection
+## License
 
-👩‍💻 Author
-
-Muskaan
-Airplane Reservation System — C++ Project
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details (if applicable).
